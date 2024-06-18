@@ -1,6 +1,7 @@
 import { AiFillTwitterCircle } from "react-icons/ai";
 
 import { BsFacebook } from "react-icons/bs";
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="footer   footers footer-center  bottom-10 col-span-6  mt-10 p-10 bg-base-200 text-xl text-base-content rounded">
@@ -8,7 +9,9 @@ function Footer() {
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
+        <Link to="/admin" className="link link-hover">
+          Đăng nhập
+        </Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">

@@ -18,10 +18,10 @@ const storage = new CloudinaryStorage({
 });
 
 const uploadCloud = multer({
-  storage,
   limits: {
-    fileSize: 1024 * 1024 * 10, // 10 MB
-    files: 5, // Số lượng tệp tối đa
+    fieldNameSize: 100, // Giới hạn kích thước tên trường
+    fieldSize: 1024 * 1024, // Giới hạn kích thước giá trị trường (1MB)
+    fileSize: 10 * 1024 * 1024, // Giới hạn kích thước tệp (10MB)
   },
 });
 

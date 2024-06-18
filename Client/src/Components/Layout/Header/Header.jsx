@@ -1,6 +1,7 @@
+import { BiUserCircle } from "react-icons/bi";
 import { AiOutlineBars } from "react-icons/ai";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/img/logo3.png";
 
 function Header() {
@@ -33,11 +34,13 @@ function Header() {
       </marquee>
       <nav className="flex justify-around md:mx-10 items-center md:justify-around text-center">
         <div className="flex mx-[-30px] md:mx-[-40px] lg:mx-0">
-          <img
-            src={logo}
-            alt="logo"
-            className="object-fit w-full h-[65px] uppercase"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="logo"
+              className="object-fit w-full h-[65px] uppercase"
+            />
+          </Link>
         </div>
 
         <div className="flex justify-evenly hidden lg:block">
