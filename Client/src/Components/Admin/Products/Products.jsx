@@ -1,28 +1,41 @@
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import React, { useState, useEffect } from "react";
-import AddProduct from "./addProduct";
 import axios from "axios";
 
-function Product() {
+import AddProduct from "./addProduct.jsx";
+import EditProduct from "./EditProduct.jsx";
+
+function Products() {
   const [showForm, setShowForm] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
   const [products, setProducts] = useState([]);
+  const [currentPost, setCurrentPost] = useState(null);
+
   const toggleForm = () => {
     setShowForm(!showForm);
   };
 
-  console.log(products);
+  const toggleEditForm = (product) => {
+    setCurrentPost(product);
+    setShowEditForm(!showEditForm);
+  };
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/v1/product`)
-      .then((response) => {
-        console.log("API response data:", response.data);
+    const fetchProducts = async () => {
+      try {
+        console.log("API URL:", process.env.REACT_APP_API_URL);
+
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/v1/product`
+        );
         setProducts(response.data.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching products:", error);
-      });
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleDelete = async (productId) => {
@@ -51,47 +64,55 @@ function Product() {
           <AddProduct toggleForm={toggleForm} setProducts={setProducts} />
         )}
       </section>
-
       <section className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Product List</h2>
+        <h2 className="text-xl font-semibold mb-4">
+          Danh sách sản phẩm ({products.length})
+        </h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
+          <table className="w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Image
+                <th className="min-w-full pl-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  ID
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Name
+                <th className="pl-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Hình ảnh
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
+                <th className="pl-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Tiêu đề
                 </th>
-
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
+                <th className="pl-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Nội dung
+                </th>
+                <th className="pl-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Tác vụ
                 </th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {products.map((product) => (
                 <tr key={product._id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="pl-6 py-4 whitespace-nowrap">{product._id}</td>
+                  <td className="pl-6 py-4 whitespace-nowrap">
                     <img
-                      src={product.images}
+                      src={
+                        product.images[0] || "https://via.placeholder.com/150"
+                      }
                       alt={product.title}
                       className="h-16 w-16 object-cover rounded"
                     />
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="pl-6 py-4 whitespace-nowrap">
                     {product.title}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
+                  <td className="pl-6 py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
                     {product.description}
                   </td>
-
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <button className="text-indigo-600 text-2xl hover:text-indigo-900">
+                  <td className="pl-6 py-4 whitespace-nowrap">
+                    <button
+                      className="text-indigo-600 text-2xl hover:text-indigo-900"
+                      onClick={() => toggleEditForm(product)}
+                    >
                       <BiMessageSquareEdit />
                     </button>
                     <button
@@ -106,9 +127,17 @@ function Product() {
             </tbody>
           </table>
         </div>
+        ;
       </section>
+      {showEditForm && (
+        <EditProduct
+          product={currentPost}
+          toggleEditForm={toggleEditForm}
+          setProducts={setProducts}
+        />
+      )}
     </div>
   );
 }
 
-export default Product;
+export default Products;

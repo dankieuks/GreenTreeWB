@@ -11,13 +11,18 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   allowedFormats: ["jpg", "png"],
-
   params: {
     folder: "GreenTree",
-    public_id: (req, file) => file.filename,
+    public_id: (req, file) => `${Date.now()}-${file.originalname}`,
   },
 });
 
-const uploadCloud = multer({ storage });
+const uploadCloud = multer({
+  storage,
+  limits: {
+    fileSize: 1024 * 1024 * 10, // 10 MB
+    files: 5, // Số lượng tệp tối đa
+  },
+});
 
 export default uploadCloud;

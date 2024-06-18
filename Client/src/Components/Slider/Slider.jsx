@@ -82,12 +82,12 @@ function Sliders() {
         <Slider {...settings} className="rounded-md ">
           {posts.map((post, index) => (
             <Link
-              to={"/blog/" + post._id}
+              to={"/du-an/" + post._id}
               key={index}
-              className="rounded-3xl mb-6  h-[350px] px-3 md:h-[380px] md:mb-2 lg:h-[480px] xl:h-[480px]  "
+              className="rounded-3xl mb-[30px]   px-3 md:h-[380px] md:mb-2 lg:h-[450px] xl:h-[450px]  "
             >
               <img
-                className="heartbeat rounded-3xl mx-1 p-4 md:p-1 w-[200px] h-[220px] lg:w-[280px] h-[290px] "
+                className="heartbeat rounded-3xl mx-1 p-4 md:p-1 w-[250px] h-[220px] lg:w-[280px] lg:h-[260px] "
                 src={post.images[0]}
                 alt={post.title}
               />

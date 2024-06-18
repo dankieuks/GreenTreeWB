@@ -59,18 +59,6 @@ const Sidebar = () => {
 
           <li className="border-b border-gray-700">
             <NavLink
-              to="settings"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-yellow-500 font-semibold block py-2 px-4"
-                  : "text-gray-400 hover:text-white block py-2 px-4"
-              }
-            >
-              Settings
-            </NavLink>
-          </li>
-          <li className="border-b border-gray-700">
-            <NavLink
               to="/"
               className={({ isActive }) =>
                 isActive

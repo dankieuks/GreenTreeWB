@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function Lazyloading() {
-    return (
-        <div>
-          <h1>This is a lazily loaded component!</h1>
-        </div>
-      );
-    }
+  return (
+    <div className="flex justify-center ">
+      <span className="loading loading-dots loading-lg "></span>
+    </div>
+  );
+}
 
-export default Lazyloading
+export default Lazyloading;

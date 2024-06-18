@@ -40,17 +40,17 @@ function Servies() {
             ))}
           </nav>
         ) : (
-          <nav className="grid grid-cols-2 gap-x-3 gap-y-3 md:grid-cols-2 md:gap-x-16 md:gap-y-8 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center">
+          <nav className="grid grid-cols-2 gap-x-5 gap-y-3 md:grid-cols-2 md:gap-x-16 md:gap-y-8 lg:grid-cols-3 xl:grid-cols-4  mx-[75px] justify-center items-center">
             {Job.map((Jobs, index) => (
               <article
                 key={index}
                 className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transform transition duration-300 ease-in-out hover:-translate-y-5"
               >
-                <Link to="/kithuat">
+                <Link to="/">
                   <img
                     src={Jobs.images[0]}
                     alt=""
-                    className="w-full h-[200px] p-3 rounded-3xl object-contain"
+                    className="w-full h-[200px] p-3 rounded-3xl "
                   />
                   <div className="p-4">
                     <h1 className="text-lg font-semibold mb-2">{Jobs.title}</h1>

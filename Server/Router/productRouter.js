@@ -4,13 +4,13 @@ import uploadCloud from "../Configs/cloudinary.config.js";
 const productRouter = express.Router();
 productRouter.get("/", Ctrls.getAll);
 productRouter.get("/:pid", Ctrls.getOne);
+
+productRouter.post("/", uploadCloud.array("images", 10), Ctrls.createProduct);
 productRouter.put(
-  "/uploadimage/:pid",
+  "/:pid",
   uploadCloud.array("images", 5),
-  Ctrls.uploadImageProduct
+  Ctrls.updatedProduct
 );
-productRouter.post("", uploadCloud.array("images", 10), Ctrls.createProduct);
-productRouter.put("/:pid", Ctrls.updatedProduct);
 productRouter.delete("/:pid", Ctrls.deleteProduct);
 
 export default productRouter;

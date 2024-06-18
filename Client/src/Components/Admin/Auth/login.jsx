@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Layout/Header/Header";
+import axiosInstance from "../../../Utils/axiosInstance.js"; // Import instance đã tạo
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,13 +14,10 @@ function Login() {
     setError("");
 
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/v1/user/login`,
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axiosInstance.post("/api/v1/user/login", {
+        email,
+        password,
+      });
       console.log("Login successful:", response.data.data);
 
       localStorage.setItem("AccessToken", response.data.data.AccessToken);
@@ -32,7 +29,7 @@ function Login() {
   };
 
   return (
-    <section className="login flex items-center justify-center min-h-screen ">
+    <section className="login flex items-center justify-center min-h-screen">
       <Header />
       <div className="max-w-md relative flex flex-col p-4 rounded-md text-black bg-white bg-opacity-90">
         <div className="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">

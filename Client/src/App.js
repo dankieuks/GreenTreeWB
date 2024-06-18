@@ -8,10 +8,11 @@ import Servies from "./Page/Contact/Servies";
 import ServiesDetail from "./Page/Servies/ServiesDetail.jsx";
 import Admin from "./Components/Admin/Admin.jsx";
 import Dashboard from "./Components/Admin/Dashboard/Dashbroad.jsx";
-import Product from "./Components/Admin/Product/Product.jsx";
+
 import Blog from "./Components/Admin/Blog/Blog.jsx";
 import Login from "./Components/Admin/Auth/login.jsx";
 import ProtectedRoute from "./Components/Admin/Auth/ProtectedRoute.jsx";
+import Products from "./Components/Admin/Products/Products.jsx";
 
 function App() {
   const publicRouter = [
@@ -41,7 +42,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<ProtectedRoute element={Admin} />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="product" element={<Product />} />
+          <Route path="product" element={<Products/>} />
           <Route path="blog" element={<Blog />} />
         </Route>
       </Routes>
