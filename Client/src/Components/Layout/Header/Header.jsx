@@ -1,11 +1,11 @@
-import { BiUserCircle } from "react-icons/bi";
+
 import { AiOutlineBars } from "react-icons/ai";
-import { useState } from "react";
+
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/img/logo3.png";
 
 function Header() {
-  const [open, setQpen] = useState(false);
+ 
 
   const items = [
     {

@@ -5,7 +5,6 @@ import AddBlogPost from "./addBlog.jsx";
 
 import axios from "axios";
 import EditBlogPost from "./EditBlogPost";
-import Lazyloading from "../../Slider/Lazyloading.jsx";
 
 function Blog() {
   const [showForm, setShowForm] = useState(false);

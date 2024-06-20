@@ -40,97 +40,73 @@ function Home() {
               <nav>
                 <span className="flex   ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh văn phòng{" "}
-                  </a>
+                  <p className=" link-hover">Vệ sinh văn phòng </p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a className=" link-hover">Cung ứng lao động thời vụ</a>
+                  <p className=" link-hover">Cung ứng lao động thời vụ</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh công trình sau xây dựng
-                  </a>
+                  <p className=" link-hover">Vệ sinh công trình sau xây dựng</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh ống khói nhà bếp
-                  </a>
+                  <p className=" link-hover">Vệ sinh ống khói nhà bếp</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Giặt nệm, thảm, sofa, màn rèm
-                  </a>
+                  <p className=" link-hover">Giặt nệm, thảm, sofa, màn rèm</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh kính tòa nhà cao tầng
-                  </a>
+                  <p className=" link-hover">Vệ sinh kính tòa nhà cao tầng</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Thi công sàn vinyl
-                  </a>
+                  <p className=" link-hover">Thi công sàn vinyl</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Xe chở xà bẩn
-                  </a>
+                  <p className=" link-hover">Xe chở xà bẩn</p>
                 </span>
               </nav>
               <nav>
                 <span className="flex   ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh nhà xưởng
-                  </a>
+                  <p className=" link-hover">Vệ sinh nhà xưởng</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
+                  <p className=" link-hover">
                     Cung ứng tạp vụ văn phòng, gia đình
-                  </a>
+                  </p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Dịch vụ vệ sinh công nghiệp
-                  </a>
+                  <p className=" link-hover">Dịch vụ vệ sinh công nghiệp</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a className=" link-hover">Vệ sinh nhà cửa</a>
+                  <p className=" link-hover">Vệ sinh nhà cửa</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh đường ống dẫn nước
-                  </a>
+                  <p className=" link-hover">Vệ sinh đường ống dẫn nước</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
+                  <p className=" link-hover">
                     Dịch vụ diệt côn trùng, mối, ruồi
-                  </a>
+                  </p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Mài đánh bóng sàn bê tông
-                  </a>
+                  <p className=" link-hover">Mài đánh bóng sàn bê tông</p>
                 </span>
                 <span className="flex ">
                   <BsFillPatchCheckFill className="iconcheck" />
-                  <a href="" className=" link-hover">
-                    Vệ sinh phòng sạch
-                  </a>
+                  <p className=" link-hover">Vệ sinh phòng sạch</p>
                 </span>
               </nav>
             </div>
@@ -237,40 +213,36 @@ function Home() {
                   <span className="flex   ">
                     <AiOutlineTags className="text-red-600 text-3xl" />
 
-                    <a href="" className=" link-hover">
+                    <p className=" link-hover">
                       Đội ngũ nhân viên chuyên nghiệp
-                    </a>
+                    </p>
                   </span>
                   <span className="flex   ">
                     <AiOutlineTags className="text-red-600 text-3xl" />
 
-                    <a href="" className=" link-hover">
+                    <p className=" link-hover">
                       Trang thiết bị máy móc hiện đại{" "}
-                    </a>
+                    </p>
                   </span>
                   <span className="flex   ">
                     <AiOutlineTags className="text-red-600 text-3xl" />
 
-                    <a href="" className=" link-hover">
-                      Giá cả rõ ràng hợp lý{" "}
-                    </a>
+                    <p className=" link-hover">Giá cả rõ ràng hợp lý </p>
                   </span>
                   <span className="flex   ">
                     <AiOutlineTags className="text-red-600 text-3xl" />
 
-                    <a href="" className=" link-hover">
+                    <p className=" link-hover">
                       Thi công an toàn và nhanh chóng
-                    </a>
+                    </p>
                   </span>
                   <span className="flex   ">
                     <AiOutlineTags className="text-red-600 text-3xl" />
 
-                    <a href="" className=" link-hover">
-                      Chính sách bảo hành tuyệt đối
-                    </a>
+                    <p className=" link-hover">Chính sách bảo hành tuyệt đối</p>
                   </span>
                   <span>
-                    <a href="" className="inline-flex rounded-md shadow-sm ">
+                    <p href="" className="inline-flex rounded-md shadow-sm ">
                       <button
                         type="button"
                         className="inline-flex items-center px-4 py-4 border border-transparent text-base leading-6 font-medium rounded-bl-3xl rounded-tr-3xl text-white bg-green-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 transform hover:-translate-x-3 focus:-translate-x-3"
@@ -278,7 +250,7 @@ function Home() {
                         <span className="loading loading-infinity loading-lg text-amber-400" />{" "}
                         Hotline : 0348216852
                       </button>
-                    </a>
+                    </p>
                   </span>
                 </nav>
               </div>
