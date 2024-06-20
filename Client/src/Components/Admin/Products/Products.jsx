@@ -1,10 +1,11 @@
-import { RiDeleteBin6Fill } from "react-icons/ri";
-import { BiMessageSquareEdit } from "react-icons/bi";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { BiMessageSquareEdit } from "react-icons/bi";
 
-import AddProduct from "./addProduct.jsx";
 import EditProduct from "./EditProduct.jsx";
+
+import AddProduct from "./addProduct";
 
 function Products() {
   const [showForm, setShowForm] = useState(false);
@@ -24,8 +25,6 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log("API URL:", process.env.REACT_APP_API_URL);
-
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/v1/product`
         );
@@ -43,7 +42,6 @@ function Products() {
       await axios.delete(
         `${process.env.REACT_APP_API_URL}/api/v1/product/${productId}`
       );
-      console.log(productId);
       setProducts(products.filter((product) => product._id !== productId));
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -92,34 +90,38 @@ function Products() {
             <tbody className="bg-white divide-y divide-gray-200">
               {products.map((product) => (
                 <tr key={product._id}>
-                  <td className="pl-6 py-4 whitespace-nowrap">{product._id}</td>
-                  <td className="pl-6 py-4 whitespace-nowrap">
-                    <img
-                      src={
-                        product.images[0] || "https://via.placeholder.com/150"
-                      }
-                      alt={product.title}
-                      className="h-16 w-16 object-cover rounded"
-                    />
+                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {product._id}
                   </td>
                   <td className="pl-6 py-4 whitespace-nowrap">
+                    {product.images &&
+                      product.images.map((image, index) => (
+                        <img
+                          key={index}
+                          src={image}
+                          alt={`Product ${index}`}
+                          className="h-20 w-20 object-cover rounded-md"
+                        />
+                      ))}
+                  </td>
+                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {product.title}
                   </td>
-                  <td className="pl-6 py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
+                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {product.description}
                   </td>
-                  <td className="pl-6 py-4 whitespace-nowrap">
+                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <button
                       className="text-indigo-600 text-2xl hover:text-indigo-900"
                       onClick={() => toggleEditForm(product)}
                     >
-                      <BiMessageSquareEdit />
+                      <BiMessageSquareEdit className="inline" />
                     </button>
                     <button
                       className="text-red-600 text-2xl hover:text-red-900 ml-4"
                       onClick={() => handleDelete(product._id)}
                     >
-                      <RiDeleteBin6Fill />
+                      <RiDeleteBin6Fill className="inline" />
                     </button>
                   </td>
                 </tr>
@@ -127,8 +129,8 @@ function Products() {
             </tbody>
           </table>
         </div>
-        ;
       </section>
+
       {showEditForm && (
         <EditProduct
           product={currentPost}

@@ -25,6 +25,7 @@ const getOne = asyncHandler(async (req, res) => {
     data: blog ? blog : "Cannot found",
   });
 });
+
 const createBlog = asyncHandler(async (req, res) => {
   if (Object.keys(req.body).length === 0) throw new Error("Missing input");
   if (req.body && req.body.title) req.body.slug = slugify(req.body.title);
@@ -39,13 +40,13 @@ const createBlog = asyncHandler(async (req, res) => {
       { new: true }
     );
     return res.status(200).json({
-      success: true ? true : false,
-      data: uploadImage ? uploadImage : "Cannot uploadImage",
+      success: true,
+      data: uploadImage,
     });
   }
   return res.status(200).json({
-    success: true ? true : false,
-    data: newBlog ? newBlog : "Cannot create new Blog",
+    success: true,
+    data: newBlog,
   });
 });
 

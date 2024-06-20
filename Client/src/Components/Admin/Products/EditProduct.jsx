@@ -1,9 +1,15 @@
 import { BsFillXCircleFill } from "react-icons/bs";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function EditProduct({ products, toggleEditForm, setProducts }) {
-  const [editedProduct, setEditedProduct] = useState(products);
+function EditProduct({ product, toggleEditForm, setProducts }) {
+  const [editedProduct, setEditedProduct] = useState(product || {});
+
+  useEffect(() => {
+    if (product) {
+      setEditedProduct(product);
+    }
+  }, [product]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,8 +61,8 @@ function EditProduct({ products, toggleEditForm, setProducts }) {
       if (response.data.success) {
         const updatedPost = response.data.data;
         setProducts((prevProducts) =>
-          prevProducts.map((products) =>
-            products._id === updatedPost._id ? updatedPost : products
+          prevProducts.map((product) =>
+            product._id === updatedPost._id ? updatedPost : product
           )
         );
         toggleEditForm();
@@ -73,6 +79,8 @@ function EditProduct({ products, toggleEditForm, setProducts }) {
     e.preventDefault();
     handleEditProduct(editedProduct);
   };
+
+  if (!editedProduct) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
@@ -95,7 +103,7 @@ function EditProduct({ products, toggleEditForm, setProducts }) {
               type="text"
               id="title"
               name="title"
-              value={editedProduct.title}
+              value={editedProduct.title || ""}
               onChange={handleChange}
               className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
             />
@@ -111,7 +119,7 @@ function EditProduct({ products, toggleEditForm, setProducts }) {
             <textarea
               id="description"
               name="description"
-              value={editedProduct.description}
+              value={editedProduct.description || ""}
               onChange={handleChange}
               rows="5"
               className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"

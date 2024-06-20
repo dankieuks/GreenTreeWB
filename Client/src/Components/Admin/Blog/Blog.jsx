@@ -12,7 +12,7 @@ function Blog() {
   const [showEditForm, setShowEditForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState(null);
-  const [loading, setLoading] = useState(true);
+
   const toggleForm = () => {
     setShowForm(!showForm);
   };
@@ -69,71 +69,64 @@ function Blog() {
         <h2 className="text-xl font-semibold mb-4">
           Danh sách bài viết ({posts.length})
         </h2>
-        {loading ? (
-          <Lazyloading />
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    ID
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Image
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Description
-                  </th>
 
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  ID
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Image
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Description
+                </th>
+
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {posts.map((post) => (
+                <tr key={post._id}>
+                  <td className="px-6 py-4 whitespace-nowrap">{post._id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <img
+                      src={post.images[0] || "https://via.placeholder.com/150"}
+                      alt={post.title}
+                      className="h-16 w-16 object-cover rounded"
+                    />
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">{post.title}</td>
+                  <td className="px-6 py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
+                    {post.description}
+                  </td>
+
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <button
+                      className="text-indigo-600 text-2xl hover:text-indigo-900"
+                      onClick={() => toggleEditForm(post)}
+                    >
+                      <BiMessageSquareEdit />
+                    </button>
+                    <button
+                      className="text-red-600 text-2xl hover:text-red-900 ml-4"
+                      onClick={() => handleDelete(post._id)}
+                    >
+                      <RiDeleteBin6Fill />
+                    </button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {posts.map((post) => (
-                  <tr key={post._id}>
-                    <td className="px-6 py-4 whitespace-nowrap">{post._id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <img
-                        src={
-                          post.images[0] || "https://via.placeholder.com/150"
-                        }
-                        alt={post.title}
-                        className="h-16 w-16 object-cover rounded"
-                      />
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {post.title}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
-                      {post.description}
-                    </td>
-
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <button
-                        className="text-indigo-600 text-2xl hover:text-indigo-900"
-                        onClick={() => toggleEditForm(post)}
-                      >
-                        <BiMessageSquareEdit />
-                      </button>
-                      <button
-                        className="text-red-600 text-2xl hover:text-red-900 ml-4"
-                        onClick={() => handleDelete(post._id)}
-                      >
-                        <RiDeleteBin6Fill />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
       {showEditForm && (
         <EditBlogPost

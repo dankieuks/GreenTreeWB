@@ -5,10 +5,11 @@ import CountUp from "react-countup";
 import Navbar from "./../../Components/Layout/Header/Navbar";
 import Header from "../../Components/Layout/Header/Header";
 import Footer from "../../Components/Layout/Footer/Footer";
-import Sliders from "./../../Components/Slider/Slider.jsx";
+
 import Gallery from "../../Components/Slider/Gallery.jsx";
 import { Link } from "react-router-dom";
 import ContactButtons from "../../Components/Slider/ContactButtons.jsx";
+import Sliders from "../../Components/Slider/Sliders.jsx";
 
 function Home() {
   return (
@@ -142,7 +143,7 @@ function Home() {
         </h1>
         <div className="stats shadow inline-block w-full text-center  md:bg-green-200   my-5 lg:inline-grid ">
           <div className="stat ">
-            <div className="stat-figure mr-[400%]   text-primary lg:mr-0">
+            <div className="stat-figure mr-[200%]    text-primary lg:mr-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -165,7 +166,7 @@ function Home() {
           </div>
 
           <div className="stat">
-            <div className="stat-figure text-secondary mr-[400%]   lg:mr-0">
+            <div className="stat-figure text-secondary mr-[200%]   lg:mr-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -188,11 +189,11 @@ function Home() {
           </div>
 
           <div className="stat ">
-            <div className="stat-figure text-secondary mr-[175%]   lg:mr-0">
+            <div className="stat-figure text-secondary mr-[70%]    lg:mr-0">
               <div className="avatar online">
                 <div className="w-16 rounded-full">
                   <img
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIil7DnkjMKzGJ9K_kAOP25M-hkDZeU4IWHA&s"
                     alt=""
                   />
                 </div>
@@ -205,7 +206,7 @@ function Home() {
             <div className="stat-desc text-secondary">31 tasks remaining</div>
           </div>
           <div className="stat ">
-            <div className="stat-figure text-secondary mr-[175%]   lg:mr-0">
+            <div className="stat-figure text-secondary mr-[70%]   lg:mr-0">
               <div className="avatar ">
                 <div className="w-16 rounded-full">
                   <img
@@ -291,7 +292,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <h1 className=" pb-6 flex justify-center items-center font-bold text-4xl text-blue-600">
+        <h1 className="text-3xl pb-6 flex justify-center items-center font-bold md:text-4xl text-blue-600">
           NHỮNG DỰ ÁN NỔI BẬT
         </h1>
         <Sliders />

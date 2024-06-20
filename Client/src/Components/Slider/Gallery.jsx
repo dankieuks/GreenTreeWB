@@ -18,16 +18,16 @@ const images = [
 const Gallery = () => {
   return (
     <section className="mx-3">
-      <h1 className="pb-6 flex justify-center items-center font-bold text-4xl text-blue-600 2xl:mt-7">
+      <h1 className="pb-6 flex justify-center items-center font-bold text-3xl text-blue-600 2xl:mt-7">
         ALBUM
       </h1>
       <nav className="container mx-auto py-7 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {images.map((image, index) => (
           <article
             key={index}
-            className={`relative group rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 ${
-              index === 0 ? "row-span-2" : ""
-            } ${index === 1 ? "col-span-2" : ""} ${
+            className={`relative flex justify-center group rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 ${
+              index === 0 ? "row-span-2 lg:row-span-2" : ""
+            } ${index === 1 ? "col-span-1 sm:col-span-2 lg:col-span-2" : ""} ${
               index > 1 ? "row-span-1 col-span-1" : ""
             }`}
           >

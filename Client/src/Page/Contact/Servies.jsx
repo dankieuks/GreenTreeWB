@@ -29,7 +29,7 @@ function Servies() {
       </h1>
       <main className="relative">
         {loading ? (
-          <nav className="grid grid-cols-2 gap-x-3 gap-y-3 md:grid-cols-2 md:gap-x-8 md:gap-y-8 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center">
+          <nav className="grid grid-cols-2  gap-y-3 md:grid-cols-2 md:gap-x-8 md:gap-y-8 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center">
             {Array.from({ length: 8 }).map((_, index) => (
               <div className="flex flex-col gap-4 w-52" key={index}>
                 <div className="skeleton h-32 w-full"></div>
@@ -40,7 +40,7 @@ function Servies() {
             ))}
           </nav>
         ) : (
-          <nav className="grid grid-cols-2 gap-x-5 gap-y-3 md:grid-cols-2 md:gap-x-16 md:gap-y-8 lg:grid-cols-3 xl:grid-cols-4  mx-[75px] justify-center items-center">
+          <nav className="block md:flex gap-x-5  rounded-3xl mb-[30px]  px-1 md:h-[350px] px-3 md:mb-2 lg:h-[400px] xl:h-[360px]  ">
             {Job.map((Jobs, index) => (
               <article
                 key={index}

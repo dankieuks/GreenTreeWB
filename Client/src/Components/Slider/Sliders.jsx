@@ -25,6 +25,7 @@ function Sliders() {
     fetchData();
   }, []);
   console.log(posts);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -69,7 +70,7 @@ function Sliders() {
     <div className="relative">
       {loading ? (
         <Slider {...settings} className="rounded-md">
-          {Array.from({ length: 8 }).map((_, index) => (
+          {Array.from({ length: 4 }).map((_, index) => (
             <div className="flex flex-col gap-4 w-52" key={index}>
               <div className="skeleton h-32 w-full"></div>
               <div className="skeleton h-4 w-28"></div>
@@ -80,14 +81,14 @@ function Sliders() {
         </Slider>
       ) : (
         <Slider {...settings} className="rounded-md ">
-          {posts.map((post, index) => (
+          {posts.map((post) => (
             <Link
               to={"/du-an/" + post._id}
-              key={index}
-              className="rounded-3xl mb-[30px]   px-3 md:h-[380px] md:mb-2 lg:h-[450px] xl:h-[450px]  "
+              key={post._id} // Sử dụng _id thay vì index làm key
+              className="rounded-3xl mb-[30px] px-3 md:h-[380px] md:mb-2 lg:h-[450px] xl:h-[450px] transition-transform transform hover:scale-105"
             >
               <img
-                className="heartbeat rounded-3xl mx-1 p-4 md:p-1 w-[250px] h-[220px] lg:w-[280px] lg:h-[260px] "
+                className="heartbeat rounded-3xl mx-1 p-4 md:p-1 w-[250px] h-[220px] lg:w-[280px] lg:h-[260px] shadow-lg hover:shadow-xl transition-shadow"
                 src={post.images[0]}
                 alt={post.title}
               />
@@ -96,7 +97,7 @@ function Sliders() {
                   {post.title}
                 </h5>
                 <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                  {post.discipstion}
+                  {post.description}
                 </p>
               </article>
               <article className="p-6 pt-0">

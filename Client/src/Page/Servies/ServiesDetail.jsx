@@ -66,7 +66,7 @@ function ServiesDetail() {
 
     return (
       <article className="text-center">
-        <h1 className="font-bold text-4xl text-blue-600 uppercase mb-8">
+        <h1 className="font-bold text-2xl md:text-4xl text-blue-600 uppercase mb-8">
           {title}
         </h1>
         <div>{combinedContent}</div>
