@@ -28,7 +28,10 @@ function Products() {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/v1/product`
         );
-        setProducts(response.data.data);
+        const sortedPosts = response.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setProducts(sortedPosts);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -49,7 +52,7 @@ function Products() {
   };
 
   return (
-    <div className="p-6">
+    <div className="py-6">
       <header>
         <h1 className="text-3xl font-bold mb-6">Quản lý sản phẩm</h1>
       </header>

@@ -29,7 +29,10 @@ function Blog() {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/api/v1/blog`
         );
-        setPosts(response.data.data);
+        const sortedPosts = response.data.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setPosts(sortedPosts);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -51,7 +54,7 @@ function Blog() {
   };
 
   return (
-    <div className="p-6">
+    <div className="py-6">
       <header>
         <h1 className="text-3xl font-bold mb-6">Quản lý bài đăng</h1>
       </header>
@@ -77,17 +80,17 @@ function Blog() {
                   ID
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Image
+                  Hình ảnh
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Name
+                <th className=" py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Tiêu đề
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Description
+                <th className=" py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Nội dung
                 </th>
 
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
+                  Hành động
                 </th>
               </tr>
             </thead>
@@ -102,8 +105,10 @@ function Blog() {
                       className="h-16 w-16 object-cover rounded"
                     />
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">{post.title}</td>
-                  <td className="px-6 py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
+                  <td className=" py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis ">
+                    {post.title}
+                  </td>
+                  <td className=" py-4 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
                     {post.description}
                   </td>
 

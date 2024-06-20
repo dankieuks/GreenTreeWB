@@ -2,14 +2,18 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 
 import { BsFacebook } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Dashboard from "./../../Admin/Dashboard/Dashbroad";
 function Footer() {
   return (
     <footer className="footer   footers footer-center  bottom-10 col-span-6  mt-10 p-10 bg-base-200 text-xl text-base-content rounded">
       <nav className="grid grid-flow-col gap-4 text-xl">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <Link to="/admin" className="link link-hover">
+        <Link to="/lien-he" className="link link-hover">
+          Liên hệ
+        </Link>
+        <Link to="/dich-vu" className="link link-hover">
+          Dịch vụ
+        </Link>
+        <Link to="/admin/dashboard" className="link link-hover">
           Đăng nhập
         </Link>
       </nav>

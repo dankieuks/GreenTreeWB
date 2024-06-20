@@ -2,12 +2,13 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { AiOutlineTags } from "react-icons/ai";
+import { BsPostcardHeart } from "react-icons/bs";
 import Strengthcard from "../../Components/Slider/Strengthcard.jsx";
 
 function ServiesDetail() {
   const { id } = useParams();
   const [details, setDetails] = useState(null);
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +28,10 @@ function ServiesDetail() {
         );
 
         if (response1.data && Array.isArray(response1.data.data)) {
-          // Filter out the current post
-          const filteredPosts = response1.data.data.filter(
-            (post) => post._id !== id
+          const sortedPosts = response1.data.data.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
           );
-          setPost(filteredPosts);
+          setPost(sortedPosts.slice(0, 5));
         } else {
           setPost([]);
         }
@@ -49,12 +49,9 @@ function ServiesDetail() {
     if (!details) return null;
 
     const { title, description, images } = details;
-    const textSegments = description.split(". ").map((text, index) => (
-      <p
-        key={`text-${index}`}
-        className="my-4 text-justify md:text-md lg:text-lg"
-      >
-        {text}.
+    const textSegments = description.split("\n").map((text, index) => (
+      <p key={`text-${index}`} className=" text-justify md:text-md lg:text-lg">
+        {text}
       </p>
     ));
 
@@ -118,23 +115,36 @@ function ServiesDetail() {
             </nav>
           </div>
           <div className="lg:w-1/4 lg:pl-8 mt-8 lg:mt-0">
-            <div className="border p-4 rounded shadow">
-              <h2 className="font-bold text-lg mb-4">Bài viết liên quan</h2>
+            <div className="border p-4 rounded-lg shadow-lg bg-white">
+              <h2 className="font-bold text-xl mb-6 text-gray-800">
+                Bài viết mới nhất
+              </h2>
               {post && post.length > 0 ? (
-                post.map((posts, index) => (
-                  <ul className="list-disc list-inside" key={index}>
-                    <li>
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1">
+                  {post.map((posts, index) => (
+                    <div
+                      key={index}
+                      className="p-3 border rounded-lg shadow hover:shadow-md transition-shadow"
+                    >
                       <Link
                         to={`/du-an/${posts._id}`}
-                        className="text-blue-600"
+                        className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
                       >
-                        {posts.title}
+                        <span className="flex items-center">
+                          <BsPostcardHeart className="mr-2" />
+                          <h3 className="text-md font-semibold mb-2 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
+                            {posts.title}
+                          </h3>
+                        </span>
+                        <p className="text-sm text-gray-700 mt-2">
+                          {posts.description.slice(0, 60)}...
+                        </p>
                       </Link>
-                    </li>
-                  </ul>
-                ))
+                    </div>
+                  ))}
+                </div>
               ) : (
-                <p>Không có bài viết liên quan.</p>
+                <p className="text-gray-600">Không có bài viết liên quan.</p>
               )}
             </div>
           </div>

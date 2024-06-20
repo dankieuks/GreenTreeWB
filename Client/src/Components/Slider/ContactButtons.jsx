@@ -26,7 +26,7 @@ function ContactButtons() {
       </a>
 
       <a
-        href="tel:0901859622"
+        href="tel:0348216852"
         className={`flex px-4 py-2 w-[150px] bg-green-500 text-white font-bold rounded-full shadow-lg ${
           isShaking ? "shake" : ""
         }`}
