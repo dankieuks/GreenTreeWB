@@ -1,12 +1,8 @@
-
 import { AiOutlineBars } from "react-icons/ai";
-
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/img/logo3.png";
 
 function Header() {
- 
-
   const items = [
     {
       to: "/",
@@ -16,7 +12,6 @@ function Header() {
       to: "/dich-vu",
       label: "Dịch Vụ",
     },
-
     {
       to: "/lien-he",
       label: "Liên hệ",
@@ -24,7 +19,7 @@ function Header() {
   ];
 
   return (
-    <header className="headers fixed top-0 left-0 col-span-6 bg-green-200 w-full z-10 opacity-90">
+    <header className="headers fixed top-0 left-0 w-full z-10 opacity-90 bg-green-200">
       <marquee
         behavior=""
         direction=""
@@ -32,17 +27,12 @@ function Header() {
       >
         Gọi ngay Vĩnh Phan để được tư vấn giải pháp Hotline : 0348216852
       </marquee>
-      <nav className="flex justify-around md:mx-10 items-center md:justify-around text-center">
-        <div className="flex mx-[-30px] md:mx-[-40px] lg:mx-0">
+      <nav className="flex justify-between px-5 md:justify-around  items-center text-center md:px-0">
+        <div className="flex">
           <Link to="/">
-            <img
-              src={logo}
-              alt="logo"
-              className="object-fit w-full h-[65px] uppercase"
-            />
+            <img src={logo} alt="logo" className="object-contain h-16" />
           </Link>
         </div>
-
         <div className="flex justify-evenly hidden lg:block">
           {items.map((itemM, index) => (
             <NavLink
@@ -58,7 +48,7 @@ function Header() {
             </NavLink>
           ))}
         </div>
-        <div className="drawer w-0 lg:hidden">
+        <div className="drawer w-0 mr-10 md:mr-0 lg:hidden">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="">
             <label

@@ -117,9 +117,9 @@ function Home() {
         <h1 className="text-center font-bold text-4xl text-blue-600">
           TẠI SAO LỰA CHỌN VĨNH PHAN
         </h1>
-        <div className="stats shadow inline-block w-full text-center  md:bg-green-200   my-5 lg:inline-grid ">
-          <div className="stat ">
-            <div className="stat-figure mr-[200%]    text-primary lg:mr-0">
+        <div className="stats shadow inline-block   w-full text-center bg-green-200 my-5  md:gird grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="stat">
+            <div className="stat-figure text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -142,7 +142,7 @@ function Home() {
           </div>
 
           <div className="stat">
-            <div className="stat-figure text-secondary mr-[200%]   lg:mr-0">
+            <div className="stat-figure text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -157,15 +157,15 @@ function Home() {
                 ></path>
               </svg>
             </div>
-            <div className="stat-title">Nhân viên </div>
+            <div className="stat-title">Nhân viên</div>
             <div className="stat-value text-secondary">
-              <CountUp delay={2} end={100} />+{" "}
+              <CountUp delay={2} end={100} />+
             </div>
             <div className="stat-desc">21% more than last month</div>
           </div>
 
-          <div className="stat ">
-            <div className="stat-figure text-secondary mr-[70%]    lg:mr-0">
+          <div className="stat">
+            <div className="stat-figure text-secondary">
               <div className="avatar online">
                 <div className="w-16 rounded-full">
                   <img
@@ -181,9 +181,10 @@ function Home() {
             <div className="stat-title">Tasks done</div>
             <div className="stat-desc text-secondary">31 tasks remaining</div>
           </div>
-          <div className="stat ">
-            <div className="stat-figure text-secondary mr-[70%]   lg:mr-0">
-              <div className="avatar ">
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <div className="avatar">
                 <div className="w-16 rounded-full">
                   <img
                     src="https://png.pngtree.com/png-clipart/20240117/original/pngtree-trophies-exquisite-presentations-honors-awards-podiums-png-image_14124541.png"

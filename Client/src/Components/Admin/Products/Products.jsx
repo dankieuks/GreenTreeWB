@@ -107,10 +107,10 @@ function Products() {
                         />
                       ))}
                   </td>
-                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500 max-w-xs overflow-hidden text-ellipsis">
                     {product.title}
                   </td>
-                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500 max-w-xs overflow-hidden text-ellipsis">
                     {product.description}
                   </td>
                   <td className="pl-6 py-4 whitespace-nowrap text-sm text-gray-500">
